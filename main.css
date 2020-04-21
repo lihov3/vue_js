@@ -1,0 +1,32 @@
+   .layer1 {
+
+    padding: 5px; /* Поля вокруг текста */
+    float: left; /* Обтекание по правому краю */
+    width: 400px; /* Ширина слоя */
+   }
+   .layer2 {
+
+    padding: 5px; /* Поля вокруг текста */
+    width: 500px; /* Ширина слоя */
+    float: left; /* Обтекание по правому краю */
+   }
+   .clear {
+ 	clear: left;
+
+	}
+	.layer3 {
+    width: 350px; /* Ширина слоя */
+   }
+   .img {
+   	float: left;
+   	padding: 0px;
+   }
+   .frame {
+    border: 10px solid #ffffff;
+   }
+   .frame_ind {
+    border: 10px solid #00a8e1;
+   }
+   .img1 {
+   	float: none;
+   }

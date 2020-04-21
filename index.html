@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Изучение Vue.js</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <div id='peopleView'>
+    <template v-if="dataPeolpes.length != 0">
+      <div class="layer1">
+        <img :src="returnInfo.photo" width="200" height="200"/>
+      </div>
+      <div class="layer2">
+        <p>ФИО: {{returnInfo.FName}}</p>
+        <p>Возраст: {{returnInfo.age}}</p>
+        <p>Должность: {{returnInfo.job}}</p>
+      </div>
+    </template>
+    <form class="layer2" v-on:submit.prevent="save">
+        <input v-model="edit.FName" placeholder="Имя"></br>
+        <input v-model="edit.age" placeholder="Возраст"></br>
+        <input v-model="edit.job" placeholder="Должность"></br>
+        <input v-model="edit.photo" placeholder="Картинка"></br>
+        <button>Сохранить</button>
+    </form>
+    <div class="clear">
+      <select v-model="sort" name="select">
+        <option value="up">по возрастанию</option> 
+        <option value="down" selected>по убыванию</option>
+      </select>
+      <div>
+        <input v-model="sort_by" type="radio" value="age" checked name="dva" id="r1"/><label for="dva1">по возрасту</label></br>
+        <input v-model="sort_by" type="radio" value="FName" name="dva" id="r2"/><label for="dva2">по имени</label></br>
+        <input v-model="sort_by" type="radio" value="job" name="dva" id="r3"/><label for="dva2">по должности</label>
+      </div>
+    </div>
+    <div class="clear">
+      <div class="layer3" v-for="(people) in dataPeolpes" :key="people.id">
+        <div class="img" >
+          <button class="img1" v-on:click="id = people.id">
+            <img :class="{frame_ind: id == people.id}" class="frame" :src="people.photo" width="50" height="50"/>
+          </button></br>
+          <button v-on:click="del(people.id)">Удалить</button></br>
+          <button v-on:click="id_on_save = people.id">Редактировать</button>
+        </div>
+      </div>
+    </div>
+    <div class="clear">
+      <button v-on:click="stepid(-1)">Prev</button>
+      <button v-on:click="stepid(1)">Next</button>
+    </div>
+  </div>
+  <script type="text/javascript" src="javascript.js"></script>
+</body>
+</html>
